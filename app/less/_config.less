@@ -1,0 +1,61 @@
+// USER VARIABLES SECTION
+
+@accent: #0066FF; // Accent Color
+@fontsize: 14px; // Body Font Size
+@textcolor: #242424; // Text Color
+@gray: #999; // Gray Color
+@bg-color: #F7F9FC; // Gray Color
+@system: -apple-system, BlinkMacSystemFont, Arial, sans-serif; // System Font Family
+//@roboto: Roboto, sans-serif; // Roboto Font Family
+
+// IMPORT SECTION
+
+@import '/node_modules/bootstrap/dist/css/bootstrap-reboot.min.css'; // Bootstrap Reboot collection
+// @import '/node_modules/bootstrap/dist/css/bootstrap-grid.min.css'; // Optional Bootstrap Grid
+@import '/node_modules/jquery-modal/jquery.modal.min.css';
+@import '/node_modules/hc-offcanvas-nav/dist/hc-offcanvas-nav.css';
+
+// FONTS LOAD SECTION
+
+.font(@fname, @fstyle, @fweight, @furl) {
+	@font-face {
+		font-family: @fname;
+		font-style: @fstyle;
+		font-weight: @fweight;
+		// font-display: swap; // Uncomment to initially display system fonts
+		src: local(@fname), url(@furl) format('woff2');
+	}
+}
+
+.font('Roboto', normal, 400, '../fonts/roboto-regular-webfont.woff2');
+.font('Roboto', italic, 400, '../fonts/roboto-italic-webfont.woff2');
+.font('Roboto', normal, 700, '../fonts/roboto-bold-webfont.woff2');
+.font('Roboto', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2');
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder {
+	color: #666;
+}
+
+::selection {
+	background-color: @accent;
+	color: #fff;
+}
+
+input, textarea {
+	outline: none;
+	&:focus:required:invalid { border-color: red }
+	&:required:valid { border-color: green }
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: @fontsize;
+	min-width: 320px;
+	position: relative;
+	line-height: 1.65;
+	overflow-x: hidden;
+	color: @textcolor;
+	background-color: @bg-color;
+}
